@@ -1,3 +1,6 @@
+" Backspace functionality
+set backspace=indent,eol,start
+
 " Use Case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
