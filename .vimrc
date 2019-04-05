@@ -99,4 +99,4 @@ endfunc
 ":b ar.c<Tab>   " offers car.c jetcar.c
 ":b j*c<Tab>    " offers jet.c jetcar.c jetcar.h
 "
-s
+set wildchar=<Tab> wildmenu wildmode=full
