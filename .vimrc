@@ -41,7 +41,7 @@ set expandtab
 set smartindent
 
 if has('gui_running')
-    set guifont=Liberation_Mono:h10
+    set guifont=Consolas:h11
 endif
 
 " Key remaps
@@ -71,10 +71,18 @@ nnoremap <leader>{ bhr{<esc>lea}<esc>
 inoremap <c-u> <esc>viwUea
 " Uppercase current word in normal mode
 nnoremap <c-u> viwUe
-" Running a build.bat file
-nnoremap <leader>b :wa<cr>:!build<cr>
+" Running the lmake command
+nnoremap <leader>b :wa<cr>:lmake<cr>:lopen<cr>
 " Cycle through auto complete
 inoremap <c-f> <c-p>
+" Close the location list window
+nnoremap <leader>l :lclose<cr>
+" Indent/Unindent text in visual mode
+vnoremap <TAB> >
+vnoremap <S-TAB> <
+" Indent/Unindent text in normal mode
+nnoremap <TAB> >>
+nnoremap <S-TAB> <<
 
 "Insert-mode Abbreviations
 iabbrev ifelse if ()<cr>{<cr><cr>}<cr>else<cr>{<cr><cr>}
@@ -87,6 +95,9 @@ function! <SID>SynStack()
     endif
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Set up make command
+set makeprg=build
 
 " Tab will show buffer list with :b 
 "Special commands for finding files
